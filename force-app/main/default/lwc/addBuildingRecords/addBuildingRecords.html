@@ -1,0 +1,32 @@
+<template>
+    <div style="height:25px;  margin-bottom:150px; margin-right:400px ">
+    <lightning-card >
+        <div style="margin: 20px; ">
+        <header style="font-size: 20px; ">
+            
+            <lightning-icon icon-name="standard:account" size="medium"></lightning-icon> 
+             Create Building Records
+        </header>
+    <lightning-record-edit-form object-api-name="Building__c"
+        onsuccess={handleSuccess}
+        >
+         
+        <lightning-messages>
+        </lightning-messages>
+        <lightning-input-field field-name="Name" required> </lightning-input-field>
+        <lightning-input-field field-name="Building_Address__c"  required> </lightning-input-field>
+        <lightning-input-field field-name="Total_Number_of_Flats__c"  required> </lightning-input-field>
+        <footer>
+        <lightning-button
+                class="slds-m-top_small"
+                type="submit"
+                label="Add Building"
+               variant="brand"
+                >
+            </lightning-button>
+        </footer>    
+    </lightning-record-edit-form>
+</div>
+</lightning-card>
+</div>
+</template>
