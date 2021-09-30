@@ -1,0 +1,47 @@
+<!-- Searching Contract’s by Tenant -->
+<template>
+    <lightning-card title="Searching Contract’s by Tenant" custom-icon="custom:icon13">
+        <div class="slds slds-p-horizontal--medium">
+         <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_4-of-12 slds-m-bottom--medium">
+                <lightning-Input type="search" placeholder="Search..."  onchange={handleChangeAccName}></lightning-input>                 
+             </div>
+             <div class="slds-col slds-size_6-of-12 slds-m-top--medium" style="margin-top: 19px; margin-left: 10px;">                 
+                    <lightning-button label="Search Tenant Name" size="small" variant="brand" onclick={handleAccountSearch} icon-name="utility:search" icon-position="right"></lightning-button>
+             </div>
+         </div>
+          
+         <h2>Tenant Name :- <span><strong>{currentAccountName}</strong></span></h2><br/> 
+         <h3><strong><span style="color:brown;">{dataNotFound}</span></strong></h3><br/>
+ 
+           <h2 class="slds-m-bottom--x-small" style="color:darkslateblue; font-weight:bold;">Displaying Contract Records based on Tenant Name</h2>
+           <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+               <thead>
+                   <tr>
+                       <th> Tenant Name</th>
+                       <th>Contract Number</th>
+                       <th>Start Date</th>
+                        <th>Contract Term(months)</th>
+                        <th>Customer Signed Date</th>
+                        <th>Contract Name</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <template for:each={records} for:item="conItem">
+                       <tr key={conItem.Id}>
+                            <td>{conItem.Tenant_Name__r.Name}</td>
+                           <td>{conItem.ContractNumber}</td>
+                           <td>{conItem.StartDate}</td>
+                           <td>{conItem.ContractTerm}</td>
+                           <td>{conItem.CustomerSignedDate}</td>
+                           <td>{conItem.Contract_Name__c}</td>
+                       </tr>
+                   </template>
+               </tbody>
+           </table>
+        </div>
+ 
+<br/><br/>
+ 
+    </lightning-card>
+</template>
